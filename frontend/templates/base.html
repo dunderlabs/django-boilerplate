@@ -1,0 +1,20 @@
+{% load compress %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ view.title }}</title>
+
+	{% compress css %}
+		<link rel="stylesheet" type="text/css" href="{% static 'semantic/dist/semantic.css' %}">
+		<link rel="stylesheet" type="text/x-scss" href="{% static 'styles/main.scss' %}">
+	{% endcompress %}
+</head>
+<body>
+	<main id="{{ view.title|slugify }}">
+		{% block content %}{% endblock content %}
+	</main>
+</body>
+</html>

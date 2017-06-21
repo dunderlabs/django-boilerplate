@@ -1,0 +1,17 @@
+{
+  "name": "TurboSendMail",
+  "description": "This application will send emails in a turbo speed.",
+  "version": "1.0.0",
+  "author": "Patrick Mazulo",
+  "dependencies": {
+    "bower": "1.7.9"
+  },
+  "license": "UNLICENSED",
+  "repository": "https://github.com/mazulo/turbo_send_mail",
+  "engines": {
+    "node": "5.11.1"
+  },
+  "scripts": {
+    "heroku-postbuild": "./node_modules/.bin/bower install"
+  }
+}

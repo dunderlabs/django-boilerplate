@@ -1,0 +1,26 @@
+# Our favorite web framework
+Django==1.11.2
+
+# Read sensitive settings from the environment
+python-decouple==3.0
+
+# Ease path/files operations
+Unipath==1.1
+
+# 12fator-like database URL parser
+dj-database-url==0.4.2
+
+# Static files manager
+django-compressor==2.1.1
+
+# Static files compilers
+libsass==0.13.2
+
+# PostgreSQL driver
+psycopg2==2.7.1
+
+# The WSGI server of choice
+gunicorn==19.7.1
+
+# Support static files on Heroku
+whitenoise==3.3.0

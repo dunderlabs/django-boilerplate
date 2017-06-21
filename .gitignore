@@ -1,0 +1,18 @@
+# Python byte-compiled files
+__pycache__/
+
+# Environment files
+*.sqlite3
+/settings/local.py
+.DS_Store
+/.env
+.directory
+
+# Front-end assets and media
+/frontend/bower_components
+/node_modules
+/_public
+/_media
+
+# Other cache
+/.cache

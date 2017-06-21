@@ -1,0 +1,23 @@
+@import 'susy';
+
+
+$susy: (
+    columns: 12,
+    container: 1168px,
+    global-box-sizing: border-box,
+    gutter-position: split,
+    gutters: 0.25,
+);
+
+
+body {
+    background: #eee;
+
+    & > * {
+        @include container;
+    }
+    main > section {
+        @include span(full);
+    }
+
+}

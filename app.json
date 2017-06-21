@@ -1,0 +1,15 @@
+{
+    "name": "TurboSendMail",
+    "addons": [
+    ],
+    "env": {
+        "DJANGO_DEBUG": "1",
+        "DJANGO_SECRET_KEY": {
+            "generator": "secret"
+        }
+    },
+    "buildpacks": [
+        {"url": "heroku/nodejs"},
+        {"url": "heroku/python"}
+    ]
+}

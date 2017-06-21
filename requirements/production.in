@@ -1,0 +1,9 @@
+dj-database-url
+python-decouple
+Django
+psycopg2
+python-dotenv
+gunicorn
+django_compressor
+libsass
+unipath
