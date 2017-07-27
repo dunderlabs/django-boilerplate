@@ -1,13 +1,13 @@
 {
-  "name": "TurboSendMail",
-  "description": "This application will send emails in a turbo speed.",
+  "name": "DjangoBoilerplate",
+  "description": "Django boilerplate to start new projects.",
   "version": "1.0.0",
   "author": "Patrick Mazulo",
   "dependencies": {
     "bower": "1.7.9"
   },
   "license": "UNLICENSED",
-  "repository": "https://github.com/mazulo/turbo_send_mail",
+  "repository": "https://github.com/dunderlabs/django-boilerplate",
   "engines": {
     "node": "5.11.1"
   },
