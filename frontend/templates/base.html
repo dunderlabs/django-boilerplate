@@ -5,7 +5,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>{{ view.title }}</title>
+	<title>
+		{% block title %}{% endblock title %}
+	</title>
 
 	{% compress css %}
 		<link rel="stylesheet" type="text/css" href="{% static 'semantic/dist/semantic.css' %}">

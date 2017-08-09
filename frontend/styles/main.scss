@@ -11,7 +11,8 @@ $susy: (
 
 
 body {
-    background: #eee;
+    background: #44B78B;
+    color: white;
 
     & > * {
         @include container;
@@ -20,4 +21,26 @@ body {
         @include span(full);
     }
 
+}
+
+.worked {
+    padding-top: 10em;
+
+    hr {
+        display: block;
+        height: 2px;
+        border: 0;
+        border-top: 1px solid #2b7156;
+        margin: 2em 0;
+        padding: 0;
+    }
+
+    li {
+        text-decoration: none;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
 }
