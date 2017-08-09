@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}
 	It's worked!
@@ -12,7 +13,7 @@
 		</span>
 		<hr>
 		<a href="https://github.com/dunderlabs">
-			<img src="{{ MEDIA_URL }}/images/GitHub-Mark-Light-32px.png">
+			<img src="{% static '/images/GitHub-Mark-Light-32px.png' %}">
 				<p>
 					See us on github.
 				</p>
