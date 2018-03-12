@@ -2,6 +2,7 @@ dj-database-url
 python-decouple
 Django
 psycopg2
+psycopg2-binary
 python-dotenv
 gunicorn
 django_compressor

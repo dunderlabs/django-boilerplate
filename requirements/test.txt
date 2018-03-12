@@ -12,6 +12,7 @@ gunicorn==19.7.1
 libsass==0.14.0
 model-mommy==1.5.1
 psycopg2==2.7.4
+psycopg2-binary==2.7.4
 python-decouple==3.1
 python-dotenv==0.8.2
 pytz==2018.3              # via django
