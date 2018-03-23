@@ -7,3 +7,4 @@ gunicorn
 django_compressor
 libsass
 unipath
+selenium

@@ -20,3 +20,4 @@ rcssmin==1.0.6            # via django-compressor
 rjsmin==1.0.12            # via django-compressor
 six==1.10.0               # via libsass, model-mommy
 unipath==1.1
+selenium==3.11.0
