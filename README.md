@@ -33,3 +33,13 @@ After all, just install the frontend dependencies with:
 ```shell
 $ make setup-frontend
 ```
+
+## Running the tests
+
+Make sure that you have the Firefox and the [geckodriver](https://github.com/mozilla/geckodriver/releases) installed on your machine.
+
+To execute the default tests, enter on the project root and run the following command:
+
+```shell
+$ python manage.py test/backend/core/tests
+```
