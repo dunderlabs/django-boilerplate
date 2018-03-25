@@ -1,10 +1,11 @@
 from django.test import TestCase, Client
+from django.urls import reverse
 
 
 class CoreTestIndexView(TestCase):
 
     def setUp(self):
-        self.url = '/'
+        self.url = reverse('core:index')
         self.client = Client()
         self.response = self.client.get(self.url)
 
