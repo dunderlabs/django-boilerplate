@@ -1,16 +1,16 @@
 {
-  "name": "turbosendmail",
+  "name": "django-boilerplate",
   "authors": [
-    "Patrick Mazulo <pmazulo@gmail.com>"
+    "Patrick Mazulo <mazulo@dunderlabs.com>"
   ],
   "description": "",
   "main": "",
   "license": "COMMERCIAL",
   "homepage": "",
-  "private": true,
+  "private": false,
   "dependencies": {
     "jquery": "^3.1.0",
-    "susy": "^2.2.12",
-    "semantic": "^2.2.4"
+    "susy": "^2.2.14",
+    "semantic": "^2.3.3"
   }
 }

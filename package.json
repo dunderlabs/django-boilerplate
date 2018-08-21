@@ -2,14 +2,14 @@
   "name": "DjangoBoilerplate",
   "description": "Django boilerplate to start new projects.",
   "version": "1.0.0",
-  "author": "Patrick Mazulo",
+  "author": "Dunderlabs",
   "dependencies": {
-    "bower": "1.7.9"
+    "bower": "1.8.4"
   },
   "license": "UNLICENSED",
   "repository": "https://github.com/dunderlabs/django-boilerplate",
   "engines": {
-    "node": "5.11.1"
+    "node": "8.9.4"
   },
   "scripts": {
     "heroku-postbuild": "./node_modules/.bin/bower install"
