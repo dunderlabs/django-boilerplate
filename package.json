@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Dunderlabs",
   "dependencies": {
-    "bower": "1.8.4"
+    "bower": "1.8.8"
   },
   "license": "UNLICENSED",
   "repository": "https://github.com/dunderlabs/django-boilerplate",
