@@ -3,19 +3,19 @@ define step
 endef
 
 
-pip-compile:
-	# Update requirements/*.txt with latest packages from requirements/*.in
-	$(call step,Installing/upgrading pip-tools...)
-	pip install -qU pip-tools
+update-requirements:
+	$(call step,Upgrading local packages in poetry.lock...)
+	poetry update
 
-	$(call step,Upgrading local packages...)
-	pip-compile -U -o requirements.txt requirements/dev.in requirements/heroku.in requirements/production.in requirements/test.in
-
-install-dev-requirements:
+install-requirements:
 	# Install requirements for a local development environment
-	$(call step,Installing dev requirements...)
-	pip install -qU pip-tools
-	pip-sync requirements.txt
+	$(call step,Installing packages from poetry.lock...)
+	poetry install
+
+export-lock-file:
+	# Export the poetry.lock file in a requirements.txt file format
+	$(call step,Exporting packages from poetry.lock to requirements.txt...)
+	poetry export -o requirements.txt -f requirements.txt --without-hashes
 
 setup-frontend:
 	bower install --allow-root
