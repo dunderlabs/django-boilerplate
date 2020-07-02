@@ -7,6 +7,8 @@ __pycache__/
 .DS_Store
 /.env
 .directory
+.venv/
+.vscode/
 
 # Front-end assets and media
 /frontend/bower_components
