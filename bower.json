@@ -10,6 +10,7 @@
   "private": false,
   "dependencies": {
     "jquery": "^3.1.0",
+    "susy": "^2.2.14",
     "semantic": "^2.3.3"
   }
 }

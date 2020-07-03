@@ -33,7 +33,7 @@ _sass_includes = ' '.join(
 )
 
 COMPRESS_PRECOMPILERS = [
-    ('text/x-scss', 'sassc {infile} {outfile} ' + _sass_includes),
+    ('text/x-scss', 'pysassc {infile} {outfile} ' + _sass_includes),
 ]
 
 COMPRESS_CSS_FILTERS = [

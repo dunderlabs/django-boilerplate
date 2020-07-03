@@ -1,3 +1,28 @@
+@import "vendors/includes";
+
+
+$susy: (
+    columns: 12,
+    container: 1168px,
+    global-box-sizing: border-box,
+    gutter-position: split,
+    gutters: 0.25,
+);
+
+
+body {
+    background: #44B78B;
+    color: white;
+
+    & > * {
+        @include container;
+    }
+    main > section {
+        @include span(full);
+    }
+
+}
+
 .worked {
     padding-top: 10em;
 
