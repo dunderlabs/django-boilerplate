@@ -93,30 +93,6 @@ six = ">=1.12.0"
 
 [[package]]
 category = "main"
-description = "A django-compressor filter to compile SASS files using libsass"
-name = "django-libsass"
-optional = false
-python-versions = "*"
-version = "0.8"
-
-[package.dependencies]
-django-compressor = ">=1.3"
-libsass = ">=0.7.0,<1"
-
-[[package]]
-category = "main"
-description = "SASS processor to compile SCSS files into *.css, while rendering, or offline."
-name = "django-sass-processor"
-optional = false
-python-versions = "*"
-version = "0.8"
-
-[package.extras]
-dev = ["libsass (>=0.13)"]
-management-command = ["django-compressor (>=2.4)"]
-
-[[package]]
-category = "main"
 description = "WSGI HTTP Server for UNIX"
 name = "gunicorn"
 optional = false
@@ -360,7 +336,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "f25702749c933cbcab87d58f0f660a5186c66fc760a06399ffba66276115cea5"
+content-hash = "898f74da4bed5b011b90e7f4d09e6499d967d21e495152a17ddf49a28d66c62e"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -395,13 +371,6 @@ django-appconf = [
 django-compressor = [
     {file = "django_compressor-2.4-py2.py3-none-any.whl", hash = "sha256:57ac0a696d061e5fc6fbc55381d2050f353b973fb97eee5593f39247bc0f30af"},
     {file = "django_compressor-2.4.tar.gz", hash = "sha256:d2ed1c6137ddaac5536233ec0a819e14009553fee0a869bea65d03e5285ba74f"},
-]
-django-libsass = [
-    {file = "django-libsass-0.8.tar.gz", hash = "sha256:38fab4ce1245542f3afd7248dc48f8a0b261f5f6c61e7cc43969a9c9079b5ffd"},
-    {file = "django_libsass-0.8-py3-none-any.whl", hash = "sha256:3e74fd8e75ac0e6ebc0443efc3e530167981bf279fecc2294094c820ae266fbb"},
-]
-django-sass-processor = [
-    {file = "django-sass-processor-0.8.tar.gz", hash = "sha256:e039551994feaaba6fcf880412b25a772dd313162a34cbb4289814988cfae340"},
 ]
 gunicorn = [
     {file = "gunicorn-20.0.4-py2.py3-none-any.whl", hash = "sha256:cd4a810dd51bf497552cf3f863b575dabd73d6ad6a91075b65936b151cbf4f9c"},

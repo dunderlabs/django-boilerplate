@@ -15,9 +15,6 @@ gunicorn = "^20.0.4"
 django_compressor = "^2.4"
 libsass = "^0.20.0"
 unipath = "^1.1"
-django-libsass = "^0.8"
-django-compressor = "^2.4"
-django-sass-processor = "^0.8"
 
 [tool.poetry.dev-dependencies]
 model-bakery = "^1.1.0"
