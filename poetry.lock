@@ -137,6 +137,19 @@ six = "*"
 
 [[package]]
 category = "dev"
+description = "Rolling backport of unittest.mock for all Pythons"
+name = "mock"
+optional = false
+python-versions = ">=3.6"
+version = "4.0.2"
+
+[package.extras]
+build = ["twine", "wheel", "blurb"]
+docs = ["sphinx"]
+test = ["pytest", "pytest-cov"]
+
+[[package]]
+category = "dev"
 description = "Smart object creation facility for Django."
 name = "model-bakery"
 optional = false
@@ -248,6 +261,31 @@ docs = ["sphinx", "sphinx-rtd-theme"]
 testing = ["django", "django-configurations (>=2.0)", "six"]
 
 [[package]]
+category = "dev"
+description = "Thin-wrapper around the mock package for easier use with pytest"
+name = "pytest-mock"
+optional = false
+python-versions = ">=3.5"
+version = "3.1.1"
+
+[package.dependencies]
+pytest = ">=2.7"
+
+[package.extras]
+dev = ["pre-commit", "tox", "pytest-asyncio"]
+
+[[package]]
+category = "dev"
+description = "pytest plugin to display test execution output like a SPECIFICATION"
+name = "pytest-spec"
+optional = false
+python-versions = "*"
+version = "2.0.0"
+
+[package.dependencies]
+mock = ">=1.0.1"
+
+[[package]]
 category = "main"
 description = "Strict separation of settings from code."
 name = "python-decouple"
@@ -336,7 +374,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "898f74da4bed5b011b90e7f4d09e6499d967d21e495152a17ddf49a28d66c62e"
+content-hash = "06de1e766aa52d874c0495fac9c105841061984935c377fcd292e3d6fc99ec43"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -394,6 +432,10 @@ libsass = [
     {file = "libsass-0.20.0-cp38-cp38-win32.whl", hash = "sha256:3bc0d68778b30b5fa83199e18795314f64b26ca5871e026343e63934f616f7f7"},
     {file = "libsass-0.20.0-cp38-cp38-win_amd64.whl", hash = "sha256:5c8ff562b233734fbc72b23bb862cc6a6f70b1e9bf85a58422aa75108b94783b"},
     {file = "libsass-0.20.0.tar.gz", hash = "sha256:b7452f1df274b166dc22ee2e9154c4adca619bcbbdf8041a7aa05f372a1dacbc"},
+]
+mock = [
+    {file = "mock-4.0.2-py3-none-any.whl", hash = "sha256:3f9b2c0196c60d21838f307f5825a7b86b678cedc58ab9e50a8988187b4d81e0"},
+    {file = "mock-4.0.2.tar.gz", hash = "sha256:dd33eb70232b6118298d516bbcecd26704689c386594f0f3c4f13867b2c56f72"},
 ]
 model-bakery = [
     {file = "model_bakery-1.1.0-py2.py3-none-any.whl", hash = "sha256:44321cded0e130c31e3cdd7589f8c3d551e12e9ebcc8425aff800dfeaf91539a"},
@@ -458,6 +500,14 @@ pytest = [
 pytest-django = [
     {file = "pytest-django-3.9.0.tar.gz", hash = "sha256:664e5f42242e5e182519388f01b9f25d824a9feb7cd17d8f863c8d776f38baf9"},
     {file = "pytest_django-3.9.0-py2.py3-none-any.whl", hash = "sha256:64f99d565dd9497af412fcab2989fe40982c1282d4118ff422b407f3f7275ca5"},
+]
+pytest-mock = [
+    {file = "pytest-mock-3.1.1.tar.gz", hash = "sha256:636e792f7dd9e2c80657e174c04bf7aa92672350090736d82e97e92ce8f68737"},
+    {file = "pytest_mock-3.1.1-py3-none-any.whl", hash = "sha256:a9fedba70e37acf016238bb2293f2652ce19985ceb245bbd3d7f3e4032667402"},
+]
+pytest-spec = [
+    {file = "pytest-spec-2.0.0.tar.gz", hash = "sha256:4fac1f455b526e8d0709278dbecfa12e822df8f32dc9ef6791b976886a237a93"},
+    {file = "pytest_spec-2.0.0-py2.py3-none-any.whl", hash = "sha256:2540286e48e81220fe139a51938525bd2c658a1aa2c8ecf34ceb03223416443d"},
 ]
 python-decouple = [
     {file = "python-decouple-3.3.tar.gz", hash = "sha256:55c546b85b0c47a15a47a4312d451a437f7344a9be3e001660bccd93b637de95"},
