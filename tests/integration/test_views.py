@@ -7,11 +7,7 @@ class CoreTestIndexView(TestCase):
     def setUp(self):
         self.url = reverse('core:index')
         self.client = Client()
-        self.response = self.client.get(self.url)
 
-    def test_index_view_response_status(self):
-        self.assertEquals(self.response.status_code, 200)
-
-    def test_index_view_template(self):
-        self.assertTemplateUsed(self.response, 'base.html')
-        self.assertTemplateUsed(self.response, 'core/index.html')
+    def test_status_code_is_200(self):
+        response = self.client.get(self.url)
+        assert response.status_code == 200
