@@ -9,13 +9,19 @@ update-requirements:
 
 install-requirements:
 	# Install requirements for a local development environment
+	$(call step,Installing poetry...)
+	pip install poetry
 	$(call step,Installing packages from poetry.lock...)
 	poetry install
 
-export-lock-file:
+generate-requirements:
 	# Export the poetry.lock file in a requirements.txt file format
 	$(call step,Exporting packages from poetry.lock to requirements.txt...)
 	poetry export -o requirements.txt -f requirements.txt --without-hashes
 
 setup-frontend:
 	bower install --allow-root
+
+test:
+	$(call step,Running all tests under tests/...)
+	pytest
