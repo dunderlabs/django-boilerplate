@@ -9,6 +9,7 @@ __pycache__/
 .directory
 .venv/
 .vscode/
+_data
 
 # Front-end assets and media
 /frontend/bower_components
