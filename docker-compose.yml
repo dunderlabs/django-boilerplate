@@ -1,0 +1,27 @@
+version: "2"
+services:
+
+  db:
+    image: postgres:12.3-alpine
+    volumes:
+      - ./_data/db:/var/lib/postgresql/data:rw
+    environment:
+      POSTGRES_DB: my_database
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+  backend:
+    build:
+      dockerfile: config/docker/backend.dockerfile
+      context: ./
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+    environment:
+      ALLOWED_HOSTS: localhost
+      DATABASE_URL: postgresql://postgres@db/my_database
+      DEBUG: 1
+      SECRET_KEY: super-secreto
