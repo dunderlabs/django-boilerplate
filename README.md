@@ -2,44 +2,50 @@
 
 Django boilerplate to start new projects. Based on [7ws logfreak project](https://github.com/7ws/logfreak).
 
-## Requirements
+What this boilerplate is using?
+-------------------------------
 
-- Python +3.5
-- Django 1.1x
-- bower
+- Python +3.6
+- Django 3.0.8
+- Pytest
+- Bower
+- Poetry
 
-## How to use
+How to use - without docker
+---------------------------
 
-Inside the directory your project will live, run the following command:
+First you will need to install `Django` so that you have the `django-admin` command available. Activate your virtual env and run `pip install Django==3.0.8`. Now inside the directory where your project will live, run the following command:
 
-```shell
+```bash
 $ django-admin startproject project_name --template=https://github.com/dunderlabs/django-boilerplate/archive/master.zip
 ```
 
-After that the following command will update requirements/\*.txt with latest packages from requirements/\*.in:
+After that, all the files from this repo will be inside the directory you created previously. Now to fully install all the requirements, you can just run:
 
-```shell
-$ make pip-compile
+```bash
+$ make install-requirements
 ```
 
-The next command will install requirements for a local development environment:
+If you want to update your requirements, this is the command:
 
-```shell
-$ make install-dev-requirements
+```bash
+$ make update-requirements
 ```
 
-After all, just install the frontend dependencies with:
+Now las but not least, install the frontend dependencies with:
 
-```shell
+```bash
 $ make setup-frontend
 ```
 
-## Running the tests
+Running the tests
+------------------
 
-Make sure that you have the Firefox and the [geckodriver](https://github.com/mozilla/geckodriver/releases) installed on your machine.
+It's as easy as just:
 
-To execute the default tests, enter on the project root and run the following command:
-
-```shell
-$ python manage.py test backend/core/tests
+```bash
+$ make test
 ```
+
+How to use - with docker
+------------------------
