@@ -1,15 +1,20 @@
-from decouple import config
-from dj_database_url import parse as db_url
 from unipath import Path
+
+from dj_database_url import parse as db_url
+from environs import Env
+
+
+env = Env()
+env.read_env()  # read .env file, if it exists
 
 
 # Basic (self-explanatory) definitions
 BASE_DIR = Path(__file__).ancestor(2)
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = env.bool('DEBUG', True)
 
 
 # Active apps
-INSTALLED_APPS = [
+DJANGO_APPS = [
     # Django built-in apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -24,8 +29,15 @@ INSTALLED_APPS = [
     'compressor',
 
     # Local apps
+]
+
+LOCAL_APPS = [
     'backend.core.apps.DefaultApp',
 ]
+
+THIRD_PARTY_APPS = []
+
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 
 # Active middlewares
@@ -53,16 +65,16 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
 DATABASES = {
-    'default': config(
+    'default': env.dj_db_url(
         'DATABASE_URL',
-        default='sqlite:///{}'.format(BASE_DIR.child('db.sqlite3')),
-        cast=db_url),
+        'sqlite:///{}'.format(BASE_DIR.child('db.sqlite3')),
+    ),
 }
 
 
 # Internationalization
-LANGUAGE_CODE = config('LANGUAGE_CODE', default='en-us')
-TIME_ZONE = config('TIME_ZONE', default='America/Fortaleza')
+LANGUAGE_CODE = env.str('LANGUAGE_CODE', 'en-us')
+TIME_ZONE = env.str('TIME_ZONE', 'America/Fortaleza')
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True

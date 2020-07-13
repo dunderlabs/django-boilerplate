@@ -17,6 +17,7 @@ What this boilerplate is using?
 What is next?
 -------------
 - [ ] [mypy](http://mypy-lang.org/)
+- [ ] [Black](https://black.readthedocs.io/en/stable/)
 - [ ] Set up Docker for production
 - [ ] Finish Heroku setup
 

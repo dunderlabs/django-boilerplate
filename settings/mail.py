@@ -1,12 +1,13 @@
-from decouple import config
+from .base import env
 
 # E-mail configuration
-DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL', default='')
-EMAIL_BACKEND = config(
-    'EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = env.str('DEFAULT_FROM_EMAIL', '')
+EMAIL_BACKEND = env.str(
+    'EMAIL_BACKEND',
+    'django.core.mail.backends.smtp.EmailBackend',
 )
-EMAIL_HOST = config('EMAIL_HOST', default='smtp.sendgrid.net')
-EMAIL_HOST_PASSWORD = config('SENDGRID_PASSWORD', default='')
-EMAIL_HOST_USER = config('SENDGRID_USERNAME', default='')
-EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+EMAIL_HOST = env.str('EMAIL_HOST', 'smtp.sendgrid.net')
+EMAIL_HOST_PASSWORD = env.str('SENDGRID_PASSWORD', '')
+EMAIL_HOST_USER = env.str('SENDGRID_USERNAME', '')
+EMAIL_PORT = env.int('EMAIL_PORT', 587)
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', True)

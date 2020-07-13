@@ -19,6 +19,7 @@ O que esse boilerplate está usando?
 O que vem por aí:
 -----------------
 - [ ] [mypy](http://mypy-lang.org/)
+- [ ] [Black](https://black.readthedocs.io/en/stable/)
 - [ ] Configurar ambiente Docker para produção
 - [ ] Finalizar configuração do Heroku
 

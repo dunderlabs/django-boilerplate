@@ -1,11 +1,11 @@
-from decouple import config
+from .base import env
 
 from .base import BASE_DIR, DEBUG
 
 
 # URLs to serve media and static files
-STATIC_URL = config('STATIC_URL', default='/static/')
-MEDIA_URL = config('MEDIA_URL', default='/media/')
+STATIC_URL = env.str('STATIC_URL', default='/static/')
+MEDIA_URL = env.str('MEDIA_URL', default='/media/')
 
 # Directories to save media and compiled static files
 MEDIA_ROOT = BASE_DIR.child('_public', 'media')
