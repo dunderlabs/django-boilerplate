@@ -46,10 +46,16 @@ Se em algum momento você quiser atualizar os pacotes Python, execute o seguinte
 $ make update-requirements
 ```
 
-Agora por último mas não menos importante, vamos instalar as dependências do frontend:
+Agora vamos instalar as dependências do frontend:
 
 ```bash
 $ make setup-frontend
+```
+
+Por fim, inicie o servidor:
+
+```bash
+$ python manage.py runserver
 ```
 
 Rodando os testes:
