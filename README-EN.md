@@ -44,10 +44,16 @@ If you want to update your requirements, this is the command:
 $ make update-requirements
 ```
 
-Now las but not least, install the frontend dependencies with:
+Now, let's install the frontend dependencies with:
 
 ```bash
 $ make setup-frontend
+```
+
+And start the server:
+
+```bash
+$ python manage.py runserver
 ```
 
 Running the tests
