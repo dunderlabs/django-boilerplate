@@ -1,45 +1,83 @@
 # Django boilerplate #
 
-Django boilerplate to start new projects. Based on [7ws logfreak project](https://github.com/7ws/logfreak).
+English version [here](README-EN.md)
 
-## Requirements
+Um template de projeto Django para ajudar você a iniciar novos projetos. Baseado no [7ws logfreak](https://github.com/7ws/logfreak).
 
-- Python +3.5
-- Django 1.1x
-- bower
+Na era das aplicações web usando React/APIs RESTful, nós ainda acreditamos que um projeto Django "raiz" tem seu valor. Principalmente se você só precisa validar uma ideia, ou simplesmente prefere não usar aquelas ferramentas. Tendo isso em mente, nós criamos essa estrutura (vamos chamar de boilerplate) que vai servir de template para um novo projeto Django, adicionando algumas _melhorias_.
 
-## How to use
+O que esse boilerplate está usando?
+-------------------------------
 
-Inside the directory your project will live, run the following command:
+- Python +3.6
+- Django 3.0.8
+- [Pytest](https://docs.pytest.org/en/stable/) - Vai nos ajudar a escrever testes (e rodá-los)
+- [Bower](https://bower.io/) - Um gerenciador de pacotes para o frontend
+- [Poetry](https://python-poetry.org/) - Gerenciador de pacotes Python
+- [Bootstrap 4.5](https://getbootstrap.com/docs/4.5/getting-started/introduction/) -  Um dos mais populares frameworks CSS
 
-```shell
-$ django-admin startproject project_name --template=https://github.com/dunderlabs/django-boilerplate/archive/master.zip
+O que vem por aí:
+-----------------
+- [ ] [mypy](http://mypy-lang.org/)
+- [ ] [Black](https://black.readthedocs.io/en/stable/)
+- [ ] Configurar ambiente Docker para produção
+- [ ] Finalizar configuração do Heroku
+
+Como utilizar - sem docker
+---------------------------
+
+Primeiro, você vai precisar instalar o `Django`, para que assim possamos utilizar o comando `django-admin`. Então ative seu ambiente virtual e rode `pip install Django==3.0.8`. Ao finalizar a instalação, dentro do diretório onde você quer que o projeto fique, rode o seguinte comando:
+
+```bash
+$ django-admin startproject nome_do_projeto --template=https://github.com/dunderlabs/django-boilerplate/archive/master.zip
 ```
 
-After that the following command will update requirements/\*.txt with latest packages from requirements/\*.in:
+Após o comando acima finalizar, você deverá fazer uma cópia do arquivo `example.env` mudando o nome da cópia para `.env`. Agora dentro dele, altere os valores das variáveis conforme necessário.
 
-```shell
-$ make pip-compile
+Depois disso, todos os arquivos desse repositório estarão dentro do diretório que você criou antes e executou o comando anterior. Agora nós precisamos instalar as dependências Python do projeto. Para isso, você pode executar esse comando abaixo:
+
+```bash
+$ make install-requirements
 ```
 
-The next command will install requirements for a local development environment:
+Se em algum momento você quiser atualizar os pacotes Python, execute o seguinte:
 
-```shell
-$ make install-dev-requirements
+```bash
+$ make update-requirements
 ```
 
-After all, just install the frontend dependencies with:
+Agora por último mas não menos importante, vamos instalar as dependências do frontend:
 
-```shell
+```bash
 $ make setup-frontend
 ```
 
-## Running the tests
+Rodando os testes:
+------------------
 
-Make sure that you have the Firefox and the [geckodriver](https://github.com/mozilla/geckodriver/releases) installed on your machine.
+Pra rodar os testes vai ser tão simples quanto o seguinte:
 
-To execute the default tests, enter on the project root and run the following command:
-
-```shell
-$ python manage.py test backend/core/tests
+```bash
+$ make test
 ```
+
+Como usar - com docker
+------------------------
+
+Primeiro certifique-se que tem [Docker](https://docs.docker.com/) e [Docker Compose](https://docs.docker.com/compose/) instalados na sua máquina. Depois disso, como primeiro passo vamos fazer o `build` do projeto, aonde ele vai baixar as imagens docker e executar todos os comandos necessários. Para isso, execute o comando:
+
+```bash
+docker-compose build
+```
+
+Nós também criamos um atalho para evitar que você sempre tenha que digitar `docker-compose run --rm backend` quando precisar executar algum comando dentro do container. Então, caso você queira executar um `python manage.py migrate` dentro do container, você roda o seguinte:
+```bash
+./bin/run python manage.py migrate
+```
+
+Se você rodar apenas `./bin/run` ele vai executar o servidor de desenvolvimento do Django.
+
+Como contribuir?
+----------------
+
+Reporte os bugs nas nossas [issues](https://github.com/dunderlabs/django-boilerplate/issues) ou simplesmente faça um fork do projeto, contribua com o que achar necessário e mande um PR pra gente! :)

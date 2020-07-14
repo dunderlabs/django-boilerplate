@@ -8,15 +8,22 @@
 	<title>
 		{% block title %}{% endblock title %}
 	</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
 	{% compress css %}
-		<link rel="stylesheet" type="text/css" href="{% static 'semantic/dist/semantic.css' %}">
 		<link rel="stylesheet" type="text/x-scss" href="{% static 'styles/main.scss' %}">
 	{% endcompress %}
 </head>
 <body>
+
 	<main id="{{ view.title|slugify }}">
 		{% block content %}{% endblock content %}
 	</main>
+
+
+	<link rel="stylesheet" type="text/css" href="{% static 'jquery/dist/jquery.min.js' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'popper.js/dist/js/popper.min.js' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/dist/js/bootstrap.min.js' %}">
 </body>
 </html>

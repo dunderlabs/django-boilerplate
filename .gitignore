@@ -3,10 +3,12 @@ __pycache__/
 
 # Environment files
 *.sqlite3
-/settings/local.py
 .DS_Store
 /.env
 .directory
+.venv/
+.vscode/
+_data
 
 # Front-end assets and media
 /frontend/bower_components

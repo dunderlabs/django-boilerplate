@@ -9,7 +9,9 @@
   "homepage": "",
   "private": false,
   "dependencies": {
-    "jquery": "^3.1.0",
-    "semantic": "^2.3.3"
+    "jquery": "^3.5.1",
+    "susy": "^2.2.14",
+    "bootstrap": "v4.5.0",
+    "popper.js": "1.16.0"
   }
 }
