@@ -30,6 +30,8 @@ First you will need to install `Django` so that you have the `django-admin` comm
 $ django-admin startproject project_name --template=https://github.com/dunderlabs/django-boilerplate/archive/master.zip
 ```
 
+When the above command finishes, you should make a new copy of the `example.env` file renaming this new copy with `.env`. Inside this new new you can change the environment variable values as you need.
+
 After that, all the files from this repo will be inside the directory you created previously. Now to fully install all the requirements, you can just run:
 
 ```bash

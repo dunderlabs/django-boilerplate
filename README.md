@@ -32,6 +32,8 @@ Primeiro, você vai precisar instalar o `Django`, para que assim possamos utiliz
 $ django-admin startproject nome_do_projeto --template=https://github.com/dunderlabs/django-boilerplate/archive/master.zip
 ```
 
+Após o comando acima finalizar, você deverá fazer uma cópia do arquivo `example.env` mudando o nome da cópia para `.env`. Agora dentro dele, altere os valores das variáveis conforme necessário.
+
 Depois disso, todos os arquivos desse repositório estarão dentro do diretório que você criou antes e executou o comando anterior. Agora nós precisamos instalar as dependências Python do projeto. Para isso, você pode executar esse comando abaixo:
 
 ```bash
