@@ -15,6 +15,8 @@ django_compressor = "^2.4"
 unipath = "^1.1"
 libsass = "^0.20.0"
 environs = {extras = ["django"], version = "^8.0.0"}
+django-debug-toolbar = "^2.2"
+django-extensions = "^3.0.2"
 
 [tool.poetry.dev-dependencies]
 model-bakery = "^1.1.0"
