@@ -3,7 +3,6 @@ __pycache__/
 
 # Environment files
 *.sqlite3
-/settings/local.py
 .DS_Store
 /.env
 .directory
