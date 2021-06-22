@@ -7,17 +7,29 @@ ifeq (test,$(firstword $(MAKECMDGOALS)))
 endif
 
 
-update-requirements:
+local-update-requirements:
 	poetry update
 
-install-requirements:
+local-install-requirements:
 	# Install requirements for a local development environment
 	curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 	poetry config virtualenvs.create false && poetry install --no-interaction --no-ansi
 
-generate-requirements:
+local-generate-requirements:
 	# Export the poetry.lock file in a requirements.txt file format
 	poetry export -o requirements.txt -f requirements.txt --without-hashes
 
-setup-frontend:
+local-setup-frontend:
 	bower install --allow-root
+
+local-test:
+	pytest $(PYTEST_ARGS)
+
+local-unit-tests:
+	pytest tests/unit/
+
+local-interaction-tests:
+	pytest tests/integration/
+
+local-test-all:
+	pytest
