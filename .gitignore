@@ -9,6 +9,8 @@ __pycache__/
 .venv/
 .vscode/
 _data
+.project
+*.swp
 
 # Front-end assets and media
 /frontend/bower_components
