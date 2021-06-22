@@ -1,6 +1,5 @@
 from unipath import Path
 
-from dj_database_url import parse as db_url
 from environs import Env
 
 
