@@ -11,15 +11,15 @@ services:
 
   backend:
     build:
-      dockerfile: config/docker/backend.dockerfile
-      context: ./
+      dockerfile: ./config/docker/backend.dockerfile
+      context: ../../
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
     depends_on:
       - db
     volumes:
-      - .:/usr/src/app
+      - ../../:/usr/src/app
     environment:
       ALLOWED_HOSTS: localhost
       DATABASE_URL: postgresql://postgres@db/my_database
