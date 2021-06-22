@@ -15,11 +15,14 @@ O que esse boilerplate está usando?
 - [Bower](https://bower.io/) - Um gerenciador de pacotes para o frontend
 - [Poetry](https://python-poetry.org/) - Gerenciador de pacotes Python
 - [Bootstrap 4.5](https://getbootstrap.com/docs/4.5/getting-started/introduction/) -  Um dos mais populares frameworks CSS
+- [pre-commit](https://pre-commit.com/) - Framework para rodar alguns hooks no momento do commit. Alguns dos hooks:
+    - [Black](https://black.readthedocs.io/en/stable/)
+    - [Flake8](https://gitlab.com/pycqa/flake8)
+    - isort
 
 O que vem por aí:
 -----------------
 - [ ] [mypy](http://mypy-lang.org/)
-- [ ] [Black](https://black.readthedocs.io/en/stable/)
 - [ ] Configurar ambiente Docker para produção
 - [ ] Finalizar configuração do Heroku
 
@@ -37,19 +40,19 @@ Após o comando acima finalizar, você deverá fazer uma cópia do arquivo `exam
 Depois disso, todos os arquivos desse repositório estarão dentro do diretório que você criou antes e executou o comando anterior. Agora nós precisamos instalar as dependências Python do projeto. Para isso, você pode executar esse comando abaixo:
 
 ```bash
-$ make install-requirements
+$ make local-install-requirements
 ```
 
 Se em algum momento você quiser atualizar os pacotes Python, execute o seguinte:
 
 ```bash
-$ make update-requirements
+$ make local-update-requirements
 ```
 
 Agora vamos instalar as dependências do frontend:
 
 ```bash
-$ make setup-frontend
+$ make local-setup-frontend
 ```
 
 Por fim, inicie o servidor:
@@ -64,7 +67,7 @@ Rodando os testes:
 Pra rodar os testes vai ser tão simples quanto o seguinte:
 
 ```bash
-$ make test
+$ make local-test-all
 ```
 
 Como usar - com docker
@@ -73,10 +76,17 @@ Como usar - com docker
 Primeiro certifique-se que tem [Docker](https://docs.docker.com/) e [Docker Compose](https://docs.docker.com/compose/) instalados na sua máquina. Depois disso, como primeiro passo vamos fazer o `build` do projeto, aonde ele vai baixar as imagens docker e executar todos os comandos necessários. Para isso, execute o comando:
 
 ```bash
-docker-compose build
+make docker-build
+```
+
+Depois disso para levantar os containeres e deixar o projeto rodando, basta executar:
+
+```bash
+make docker-up
 ```
 
 Nós também criamos um atalho para evitar que você sempre tenha que digitar `docker-compose run --rm backend` quando precisar executar algum comando dentro do container. Então, caso você queira executar um `python manage.py migrate` dentro do container, você roda o seguinte:
+
 ```bash
 ./bin/run python manage.py migrate
 ```

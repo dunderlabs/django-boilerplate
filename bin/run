@@ -1,2 +1,2 @@
 #!/bin/bash
-docker-compose run --rm --service-ports backend $@
+docker-compose -f ./config/compose/docker-compose.yml run --rm --service-ports backend $@
