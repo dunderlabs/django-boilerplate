@@ -13,11 +13,14 @@ What this boilerplate is using?
 - [Bower](https://bower.io/) - A package manager for the frontend
 - [Poetry](https://python-poetry.org/) - Python packaging and dependency management
 - [Bootstrap 4.5](https://getbootstrap.com/docs/4.5/getting-started/introduction/) -  the world’s most popular framework
+- [pre-commit](https://pre-commit.com/) - Framework to manage and run some git commit hooks:
+    - [Black](https://black.readthedocs.io/en/stable/)
+    - [Flake8](https://gitlab.com/pycqa/flake8)
+    - isort
 
 What is next?
 -------------
 - [ ] [mypy](http://mypy-lang.org/)
-- [ ] [Black](https://black.readthedocs.io/en/stable/)
 - [ ] Set up Docker for production
 - [ ] Finish Heroku setup
 
@@ -35,19 +38,19 @@ When the above command finishes, you should make a new copy of the `example.env`
 After that, all the files from this repo will be inside the directory you created previously. Now to fully install all the requirements, you can just run:
 
 ```bash
-$ make install-requirements
+$ make local-install-requirements
 ```
 
 If you want to update your requirements, this is the command:
 
 ```bash
-$ make update-requirements
+$ make local-update-requirements
 ```
 
 Now, let's install the frontend dependencies with:
 
 ```bash
-$ make setup-frontend
+$ make local-setup-frontend
 ```
 
 And start the server:
@@ -62,16 +65,30 @@ Running the tests
 It's as easy as just:
 
 ```bash
-$ make test
+$ make local-test-all
 ```
 
 How to use - with docker
 ------------------------
-Firstly make sure you have [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) installed on your machine. To build it run `docker-compose build` and when it is finished, you will be ready to run the project. We also created a shortcut in `bin/run` that you can use to run commands. For example:
+Firstly make sure you have [Docker](https://docs.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) installed on your machine. After that the second step is to `build` the project, where docker will pull the images to be able to execute our commands. So in order to build it you can run:
 
-- To run `migrate`: `./bin/run python manage.py migrate`
+```bash
+make docker-build
+```
 
-If you just run `./bin/run` it will start the development project server.
+When it is finished, you will be ready to run the project using the following commmand:
+
+```bash
+make docker-up
+```
+
+We also created a shortcut in `bin/run` that you can use to run commands. For example, to run `migrate`:
+
+```bash
+./bin/run python manage.py migrate
+```
+
+If you just run `./bin/run` it will start the development server.
 
 How to contribute?
 ----------------
