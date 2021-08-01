@@ -1,15 +1,45 @@
 {
     "name": "DjangoBoilerplate",
     "addons": [
+        {
+            "plan": "heroku-postgresql:hobby-dev",
+            "options": {
+              "version": "13"
+            },
+            "as": "DATABASE"
+        }
     ],
     "env": {
         "DJANGO_DEBUG": "1",
+        "ALLOWED_HOSTS": {
+            "description": "Django ALLOWED_HOSTS setting, e.g.: .appname.herokuapp.com"
+        },
         "DJANGO_SECRET_KEY": {
             "generator": "secret"
+        },
+        "DJANGO_SETTINGS_MODULE": {
+            "description": "Django settings Python import path",
+            "value": "settings.production"
+        },
+        "DISABLE_COLLECTSTATIC": {
+            "description": "Disables django collectstatic",
+            "value": "1"
+        },
+        "ENABLE_DJANGO_COLLECTSTATIC": {
+            "description": "Enables collectstatic to be run by post_compile",
+            "value": "1"
+        },
+        "AUTO_MIGRATION": {
+            "description": "Setting to run migrate automatically by post_compile",
+            "value": "1"
         }
     },
     "buildpacks": [
-        {"url": "heroku/nodejs"},
-        {"url": "heroku/python"}
+        {
+          "url": "heroku/nodejs"
+        },
+        {
+          "url": "heroku/python"
+        }
     ]
 }

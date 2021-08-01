@@ -1,3 +1,18 @@
 # !/usr/bin/env bash
-echo "=> Performing database migrations..."
-python manage.py migrate
+echo "====> Running post-compile hook..."
+
+if [ -n "$ENABLE_DJANGO_COLLECTSTATIC" ] && [ "$ENABLE_DJANGO_COLLECTSTATIC" == 1 ]; then
+    echo "=====> Running bower install"
+    ./node_modules/.bin/bower install
+
+    echo "=====> Running collectstatic"
+    python manage.py collectstatic --noinput
+fi
+
+echo "=====> Running manage.py check --deploy --fail-level WARNING"
+python manage.py check --deploy --fail-level WARNING
+
+if [ -n "$AUTO_MIGRATION" ] && [ "$AUTO_MIGRATION" == 1 ]; then
+    echo "=====> Running manage.py migrate"
+    python manage.py migrate --noinput
+fi
