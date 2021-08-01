@@ -9,7 +9,7 @@
   "license": "UNLICENSED",
   "repository": "https://github.com/dunderlabs/django-boilerplate",
   "engines": {
-    "node": "8.9.4"
+    "node": "14.xgit@github.com:dunderlabs/django-boilerplate.git"
   },
   "scripts": {
     "heroku-postbuild": "./node_modules/.bin/bower install"
