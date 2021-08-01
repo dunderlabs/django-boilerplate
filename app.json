@@ -4,7 +4,7 @@
         {
             "plan": "heroku-postgresql:hobby-dev",
             "options": {
-              "version": "13"
+                "version": "13"
             },
             "as": "DATABASE"
         }
@@ -36,10 +36,10 @@
     },
     "buildpacks": [
         {
-          "url": "heroku/nodejs"
+            "url": "heroku/nodejs"
         },
         {
-          "url": "heroku/python"
+            "url": "heroku/python"
         }
     ]
 }
