@@ -11,7 +11,7 @@ RUN npm install --global bower
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY poetry.lock pyproject.toml bower.json /usr/src/app
+COPY poetry.lock pyproject.toml bower.json /usr/src/app/
 
 # Project initialization:
 RUN poetry config virtualenvs.create false \
