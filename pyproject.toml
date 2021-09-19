@@ -6,7 +6,6 @@ authors = [""]
 
 [tool.poetry.dependencies]
 python = ">=3.6.2,<4.0"
-django = "^3.0.8"
 whitenoise = "^5.1.0"
 dj-database-url = "^0.5.0"
 psycopg2-binary = "^2.8.5"
@@ -17,6 +16,7 @@ libsass = "^0.20.0"
 environs = {extras = ["django"], version = "^8.0.0"}
 django-debug-toolbar = "^2.2"
 django-extensions = "^3.0.2"
+Django = ">=3.1.12"
 
 [tool.poetry.dev-dependencies]
 model-bakery = "^1.1.0"
