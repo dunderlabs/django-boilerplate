@@ -4,7 +4,7 @@ services:
   db:
     image: postgres:12.3-alpine
     volumes:
-      - ./_data/db:/var/lib/postgresql/data:rw
+      - ../../_data/db:/var/lib/postgresql/data:rw
     environment:
       POSTGRES_DB: my_database
       POSTGRES_HOST_AUTH_METHOD: trust
