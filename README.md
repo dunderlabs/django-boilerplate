@@ -32,7 +32,7 @@ Como utilizar - sem docker
 Primeiro, você vai precisar instalar o `Django`, para que assim possamos utilizar o comando `django-admin`. Então ative seu ambiente virtual e rode `pip install Django==3.0.8`. Ao finalizar a instalação, dentro do diretório onde você quer que o projeto fique, rode o seguinte comando:
 
 ```bash
-$ django-admin startproject nome_do_projeto --template=https://github.com/dunderlabs/django-boilerplate/archive/master.zip
+django-admin startproject nome_do_projeto --template=https://github.com/dunderlabs/django-boilerplate/archive/main.zip
 ```
 
 Após o comando acima finalizar, você deverá fazer uma cópia do arquivo `example.env` mudando o nome da cópia para `.env`. Agora dentro dele, altere os valores das variáveis conforme necessário.

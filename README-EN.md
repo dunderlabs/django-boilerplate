@@ -30,7 +30,7 @@ How to use - without docker
 First you will need to install `Django` so that you have the `django-admin` command available. Activate your virtual env and run `pip install Django==3.0.8`. Now inside the directory where your project will live, run the following command:
 
 ```bash
-$ django-admin startproject project_name --template=https://github.com/dunderlabs/django-boilerplate/archive/master.zip
+django-admin startproject project_name --template=https://github.com/dunderlabs/django-boilerplate/archive/main.zip
 ```
 
 When the above command finishes, you should make a new copy of the `example.env` file renaming this new copy with `.env`. Inside this new new you can change the environment variable values as you need.
