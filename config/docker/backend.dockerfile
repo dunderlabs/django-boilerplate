@@ -1,11 +1,11 @@
-FROM nikolaik/python-nodejs:python3.8-nodejs14
+FROM nikolaik/python-nodejs:python3.9-nodejs16
 
 # Unbuffer Python logs
 ENV PYTHONUNBUFFERED=1 \
-  POETRY_VERSION=1.1.6
+  POETRY_VERSION=1.1.9
 
 
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+RUN pip install poetry==$POETRY_VERSION
 
 RUN npm install --global bower
 
