@@ -20,6 +20,7 @@ services:
       - db
     volumes:
       - ../../:/usr/src/app
+      - /usr/src/app/frontend/bower_components
     environment:
       ALLOWED_HOSTS: localhost
       DATABASE_URL: postgresql://postgres@db/my_database
