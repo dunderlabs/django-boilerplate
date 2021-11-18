@@ -16,4 +16,4 @@ jobs:
       run: make docker-build
 
     - name: Run integration tests
-      run: make interaction-tests
+      run: make integration-tests

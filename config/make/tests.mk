@@ -12,7 +12,7 @@ test:
 unit-tests:
 	$(MAKE) docker-run cmd="pytest tests/unit/"
 
-interaction-tests:
+integration-tests:
 	$(MAKE) docker-run cmd="pytest tests/integration/"
 
 test-all:
