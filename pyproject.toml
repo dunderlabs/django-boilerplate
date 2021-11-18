@@ -25,7 +25,7 @@ Django = ">=3.1.12"
 
 [tool.poetry.dev-dependencies]
 model-bakery = "^1.1.0"
-pytest = "^5.4.3"
+pytest = "^6.2.5"
 pytest-django = "^3.9.0"
 pytest-mock = "^3.1.1"
 pytest-spec = "^2.0.0"
