@@ -1,0 +1,19 @@
+name: Run unit tests
+
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build image
+      run: make docker-build
+
+    - name: Run unit tests
+      run: make unit-tests
