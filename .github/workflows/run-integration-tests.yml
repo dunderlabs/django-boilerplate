@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
-      - uses: actions/checkout@v2
+        run: actions/checkout@v2
 
       - name: Build image
-      - uses: make docker-build
+        run: make docker-build
 
       - name: Run integration tests
-      - uses: make interaction-tests
+        run: make interaction-tests
