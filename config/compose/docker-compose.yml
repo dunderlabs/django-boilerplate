@@ -1,13 +1,15 @@
 version: "2"
 services:
 
-  db:
+  database:
     image: postgres:12.3-alpine
     volumes:
-      - ../../_data/db:/var/lib/postgresql/data:rw
+      - ../../_data/database:/var/lib/postgresql/data:rw
     environment:
-      POSTGRES_DB: my_database
+      POSTGRES_DB: my_db
       POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
 
   backend:
     build:
@@ -17,12 +19,12 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      - database
     volumes:
       - ../../:/usr/src/app
       - /usr/src/app/frontend/bower_components
     environment:
       ALLOWED_HOSTS: localhost
-      DATABASE_URL: postgresql://postgres@db/my_database
+      DATABASE_URL: postgresql://postgres@database/my_db
       DEBUG: 1
       SECRET_KEY: super-secreto
