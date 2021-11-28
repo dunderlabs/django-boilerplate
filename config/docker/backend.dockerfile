@@ -23,3 +23,5 @@ RUN poetry config virtualenvs.create false \
 
 # Static files
 COPY --from=nodejs /app/bower_components frontend/bower_components
+
+CMD [ "gunicorn", "backend.wsgi", "--log-file -" ]
