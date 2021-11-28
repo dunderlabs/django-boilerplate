@@ -1,0 +1,30 @@
+name: Deploying app to Heroku
+
+on:
+  pull_request:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy-heroku:
+    runs-on: ubuntu-latest
+    env:
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      HEROKU_APP: ${{ secrets.HEROKU_APP_NAME }}
+      DOCKER_IMAGE: registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
+    steps:
+      - uses: actions/checkout@v2
+      - name: Installing Heroku CLI
+        run: curl https://cli-assets.heroku.com/install.sh | sh
+      - name: Logging in to the Heroku Container Registry
+        run: heroku container:login
+      - name: Building the Docker image
+        run: docker-compose build
+      - name: Pusing Docker image to the Heroku Container Registry
+        run: docker-compose push
+      - name: Create a new container release
+        run: heroku container:release web
+      - name: Apllying migrations
+        run: heroku run -x python manage.py migrate
+      - name: Collecting static files
+        run: heroku run -x SECRET_KEY=${{ secrets.SECRET_KEY }} python manage.py collectstatic --noinput
