@@ -6,7 +6,7 @@ RUN npm install --global bower
 RUN bower install --allow-root
 
 # Backend setup
-FROM python:3.10
+FROM python:3.10 AS development
 
 # Unbuffer Python logs
 ENV PYTHONUNBUFFERED=1
@@ -23,5 +23,9 @@ RUN poetry config virtualenvs.create false \
 
 # Static files
 COPY --from=nodejs /app/bower_components frontend/bower_components
+
+FROM development AS production
+WORKDIR /usr/src/app
+COPY . /usr/src/app/
 
 CMD [ "gunicorn", "backend.wsgi", "--log-file -" ]
