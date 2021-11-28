@@ -12,6 +12,7 @@ services:
       - "5432:5432"
 
   backend:
+    image: my-django-boilerplate:latest
     build:
       dockerfile: ./config/docker/backend.dockerfile
       context: ../../
