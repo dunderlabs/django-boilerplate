@@ -19,7 +19,7 @@ jobs:
       - name: Logging in to the Heroku Container Registry
         run: heroku container:login
       - name: Building the Docker image
-        run: docker-compose build
+        run: docker-compose -f ./config/compose/docker-compose.yml build
       - name: Pusing Docker image to the Heroku Container Registry
         run: docker-compose push
       - name: Create a new container release
