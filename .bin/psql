@@ -1,0 +1,6 @@
+#!/bin/sh
+if docker-compose -f ./config/compose/docker-compose.yml run --rm database psql -h database -U postgres ; then
+    echo "Bye!"
+else 
+    echo "Make sure you spun up the docker compose service for the database first"
+fi
