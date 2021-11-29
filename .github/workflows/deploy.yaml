@@ -14,6 +14,10 @@ jobs:
       DOCKER_IMAGE: registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
     steps:
       - uses: actions/checkout@v2
+      - name: Checking env vars
+        run: echo $HEROKU_APP_NAME
+      - name: Checking secrets?
+        run: echo ${{ secrets.HEROKU_APP_NAME }}
       - name: Installing Heroku CLI
         run: curl https://cli-assets.heroku.com/install.sh | sh
       - name: Logging in to the Heroku Container Registry
