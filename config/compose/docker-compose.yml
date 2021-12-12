@@ -1,4 +1,4 @@
-version: "2"
+version: "3.9"
 services:
 
   database:
@@ -10,9 +10,13 @@ services:
       POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - "5432:5432"
+    healthcheck:
+      test: pg_isready -Upostgres
+      interval: 1s
+      timeout: 30s
 
   backend:
-    image: ${DOCKER_IMAGE:my-django-boilerplate}:${DOCKER_TAG:-latest}
+    image: ${DOCKER_IMAGE:-my-django-boilerplate}:${DOCKER_TAG:-latest}
     build:
       dockerfile: ./config/docker/backend.dockerfile
       context: ../../
@@ -20,7 +24,7 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - database
+      database: {condition: service_healthy}
     volumes:
       - ../../:/usr/src/app
       - /usr/src/app/frontend/bower_components
