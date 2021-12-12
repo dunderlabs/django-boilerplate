@@ -36,4 +36,4 @@ jobs:
         run: heroku run -x python manage.py migrate
 
       - name: Collecting static files
-        run: heroku run -x SECRET_KEY=${{ secrets.SECRET_KEY }} python manage.py collectstatic --noinput
+        run: heroku run -x -e SECRET_KEY=shrubbles python manage.py collectstatic --noinput
