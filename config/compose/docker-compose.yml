@@ -12,7 +12,7 @@ services:
       - "5432:5432"
 
   backend:
-    image: my-django-boilerplate:latest
+    image: ${DOCKER_IMAGE:my-django-boilerplate}:${DOCKER_TAG:-latest}
     build:
       dockerfile: ./config/docker/backend.dockerfile
       context: ../../
