@@ -6,7 +6,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  deploy-heroku:
     runs-on: ubuntu-latest
     environment: django-boilerplate
     env:
@@ -14,20 +14,24 @@ jobs:
       HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
       HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
       SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      DOCKER_IMAGE: registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Build, Push and Release a Docker container to Heroku.
-        uses: gonuit/heroku-docker-deploy@v1.3.3
-        with:
-          email: ${{ secrets.ADMIN_EMAIL }}
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-          dockerfile_directory: ./config/docker/
-          dockerfile_name: backend.dockerfile
-          docker_options: "--no-cache"
-          process_type: web
+      - name: Installing Heroku CLI
+        run: curl https://cli-assets.heroku.com/install.sh | sh
+
+      - name: Logging in to the Heroku Container Registry
+        run: heroku container:login
+
+      - name: Building the Docker image
+        run: docker-compose -f ./config/compose/docker-compose.yml build
+
+      - name: Pushing Docker image to the Heroku Container Registry
+        run: docker-compose -f ./config/compose/docker-compose.yml push
+
+      - name: Create a new container release
+        run: heroku container:release web
 
       - name: Apllying migrations
         run: heroku run -x python manage.py migrate
