@@ -1,0 +1,39 @@
+name: Deploying app to Heroku
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy-heroku:
+    runs-on: ubuntu-latest
+    environment: django-boilerplate
+    env:
+      ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      HEROKU_APP: ${{ secrets.HEROKU_APP_NAME }}
+      SECRET_KEY: ${{ secrets.SECRET_KEY }}
+      DOCKER_IMAGE: registry.heroku.com/${{ secrets.HEROKU_APP_NAME }}/web
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Installing Heroku CLI
+        run: curl https://cli-assets.heroku.com/install.sh | sh
+
+      - name: Logging in to the Heroku Container Registry
+        run: heroku container:login
+
+      - name: Building the Docker image
+        run: docker-compose -f ./config/compose/docker-compose.yml build
+
+      - name: Pushing Docker image to the Heroku Container Registry
+        run:  docker-compose -f ./config/compose/docker-compose.yml push
+
+      - name: Create a new container release
+        run: heroku container:release web
+
+      - name: Apllying migrations
+        run: heroku run -x python manage.py migrate
+
+      - name: Collecting static files
+        run: heroku run -x -e SECRET_KEY=shrubbles python manage.py collectstatic --noinput

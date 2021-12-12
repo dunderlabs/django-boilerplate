@@ -1,15 +1,22 @@
-version: "2"
+version: "3.9"
 services:
 
-  db:
+  database:
     image: postgres:12.3-alpine
     volumes:
-      - ../../_data/db:/var/lib/postgresql/data:rw
+      - ../../_data/database:/var/lib/postgresql/data:rw
     environment:
-      POSTGRES_DB: my_database
+      POSTGRES_DB: my_db
       POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: pg_isready -Upostgres
+      interval: 1s
+      timeout: 30s
 
   backend:
+    image: ${DOCKER_IMAGE:-my-django-boilerplate}:${DOCKER_TAG:-latest}
     build:
       dockerfile: ./config/docker/backend.dockerfile
       context: ../../
@@ -17,12 +24,12 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      database: {condition: service_healthy}
     volumes:
       - ../../:/usr/src/app
       - /usr/src/app/frontend/bower_components
     environment:
       ALLOWED_HOSTS: localhost
-      DATABASE_URL: postgresql://postgres@db/my_database
+      DATABASE_URL: postgresql://postgres@database/my_db
       DEBUG: 1
       SECRET_KEY: super-secreto
