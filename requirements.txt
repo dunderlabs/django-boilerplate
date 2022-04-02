@@ -1,22 +1,19 @@
 asgiref==3.4.1; python_version >= "3.8"
 dj-database-url==0.5.0
-dj-email-url==1.0.2; python_full_version >= "3.5.3"
 django-appconf==1.0.5; python_version >= "3.6"
-django-cache-url==3.2.3; python_full_version >= "3.5.3"
-django-compressor==3.0
-django-debug-toolbar==2.2.1; python_version >= "3.5"
+django-compressor==3.1
 django-extensions==3.1.5; python_version >= "3.6"
-django==4.0; python_version >= "3.8"
-environs==8.1.0; python_full_version >= "3.5.3"
+django==4.0.3; python_version >= "3.8"
+environs==9.5.0; python_version >= "3.6"
 gunicorn==20.1.0; python_version >= "3.5"
-libsass==0.20.1
-marshmallow==3.14.1; python_version >= "3.6" and python_full_version >= "3.5.3"
-psycopg2-binary==2.9.2; python_version >= "3.6"
-python-dotenv==0.19.2; python_version >= "3.5" and python_full_version >= "3.5.3"
+libsass==0.21.0
+marshmallow==3.14.1; python_version >= "3.6"
+psycopg2-binary==2.9.3; python_version >= "3.6"
+python-dotenv==0.19.2; python_version >= "3.6"
 rcssmin==1.1.0
 rjsmin==1.2.0
 six==1.16.0; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.3.0"
 sqlparse==0.4.2; python_version >= "3.8"
 tzdata==2021.5; sys_platform == "win32" and python_version >= "3.8"
 unipath==1.1
-whitenoise==5.3.0; python_version >= "3.5" and python_version < "4"
+whitenoise==6.0.0; python_version >= "3.7"
