@@ -13,7 +13,7 @@ python-dotenv==0.19.2; python_version >= "3.6"
 rcssmin==1.1.0
 rjsmin==1.2.0
 six==1.16.0; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.3.0"
-sqlparse==0.4.2; python_version >= "3.8"
+sqlparse==0.4.4; python_version >= "3.8"
 tzdata==2021.5; sys_platform == "win32" and python_version >= "3.8"
 unipath==1.1
 whitenoise==6.0.0; python_version >= "3.7"
